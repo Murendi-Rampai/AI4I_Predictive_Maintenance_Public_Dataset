@@ -10,6 +10,11 @@ from sklearn.model_selection import (
 )
 from sklearn.pipeline import Pipeline
 
+from sklearn.ensemble import (
+    RandomForestClassifier,
+    HistGradientBoostingClassifier,
+)
+
 from prepare_data import (
     load_and_validate_data,
     get_features_and_target,
@@ -51,14 +56,27 @@ def main():
 
     # 3. Define the models we want to compare.
     models = {
-        "dummy": DummyClassifier(
-            strategy="prior",
-        ),
-        "logistic_regression": LogisticRegression(
-            C=1.0,
-            max_iter=2000,
-            random_state=RANDOM_SEED,
-        ),
+    "dummy": DummyClassifier(
+        strategy="prior",
+    ),
+
+    "logistic_regression": LogisticRegression(
+        C=1.0,
+        max_iter=2000,
+        random_state=RANDOM_SEED,
+    ),
+
+    "random_forest": RandomForestClassifier(
+        n_estimators=100,
+        random_state=RANDOM_SEED,
+        n_jobs=1,
+    ),
+
+    "hist_gradient_boosting": HistGradientBoostingClassifier(
+        learning_rate=0.1,
+        max_iter=100,
+        random_state=RANDOM_SEED,
+    ),
     }
 
     # 4. Define cross-validation within the training set.
