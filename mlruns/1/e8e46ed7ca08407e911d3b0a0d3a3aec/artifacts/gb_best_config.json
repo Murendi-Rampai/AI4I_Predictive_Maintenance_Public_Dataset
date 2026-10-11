@@ -1,0 +1,14 @@
+{
+  "model_family": "hist_gradient_boosting",
+  "parameters": {
+    "min_samples_leaf": 10,
+    "max_leaf_nodes": 31,
+    "max_iter": 100,
+    "learning_rate": 0.05,
+    "l2_regularization": 1.0,
+    "random_state": 42,
+    "early_stopping": false
+  },
+  "cv_average_precision_mean": 0.8981527493184398,
+  "trial_run_id": "a14721ca239c4263a579497ac7c573e4"
+}
